@@ -20,8 +20,8 @@ function App() {
 
     return (
         <div className={'app'}>
-            <Navigation user={user} />
-            <Body user={user} stats={stats} />
+            <Navigation user={user} changeAvatar={changeAvatar} />
+            <Body user={user} stats={stats} changeAvatar={changeAvatar} />
         </div>
     )
 }

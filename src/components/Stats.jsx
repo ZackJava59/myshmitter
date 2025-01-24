@@ -1,10 +1,10 @@
 import Avatar from "./Avatar.jsx";
 
-const Stats = ({user, stats}) => {
+const Stats = ({user, stats, changeAvatar}) => {
     return (
         <div className={'user-stats'}>
             <div>
-                <Avatar user={user}/>
+                <Avatar user={user} changeAvatar={changeAvatar} />
                 {user.name}
             </div>
             <div className={'stats'}>
