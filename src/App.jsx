@@ -15,7 +15,6 @@ function App() {
         following: 10
     });
 
-
     const changeAvatar = url => {
         setUser(prevState => ({...prevState, avatar: url || prevState.avatar}));
     }
