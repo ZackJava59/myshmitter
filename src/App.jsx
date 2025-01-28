@@ -20,14 +20,22 @@ function App() {
         setUser(prevState => ({...prevState, avatar: url || prevState.avatar}));
     }
 
-    const changeName =name => {
+    const changeName = name => {
         setUser(prevState => ({...prevState, name: name || prevState.name}));
+    }
+
+    const changeFollowers = followers => {
+        setStats(prevState => ({...prevState, followers: followers}));
+    }
+
+    const changeFollowing = following => {
+        setStats(prevState => ({...prevState, following: following}));
     }
 
     return (
         <div className={'app'}>
             <TwitterContext.Provider value={{
-                user, stats, changeAvatar, changeName
+                user, stats, changeAvatar, changeName, changeFollowers, changeFollowing
             }}>
                 <Navigation/>
                 <Body/>
