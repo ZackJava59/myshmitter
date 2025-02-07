@@ -1,8 +1,8 @@
 import './App.css'
-import Navigation from "./components/Navigation.jsx";
-import Body from "./components/Body.jsx";
+import Navigation from "./components/Navigation.tsx";
+import Body from "./components/Body.tsx";
 import {useState} from "react";
-import {TwitterContext} from "./utils/context.js";
+import {TwitterContext} from "./utils/context.ts";
 
 function App() {
     const [user, setUser] = useState({
@@ -15,19 +15,19 @@ function App() {
         following: 10
     });
 
-    const changeAvatar = url => {
+    const changeAvatar = (url: string) => {
         setUser(prevState => ({...prevState, avatar: url || prevState.avatar}));
     }
 
-    const changeName = name => {
+    const changeName = (name: string) => {
         setUser(prevState => ({...prevState, name: name || prevState.name}));
     }
 
-    const changeFollowers = followers => {
+    const changeFollowers = (followers: number) => {
         setStats(prevState => ({...prevState, followers: followers}));
     }
 
-    const changeFollowing = following => {
+    const changeFollowing = (following: number) => {
         setStats(prevState => ({...prevState, following: following}));
     }
 

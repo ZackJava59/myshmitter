@@ -1,7 +1,11 @@
 import {useContext} from "react";
-import {TwitterContext} from "../utils/context.js";
+import {TwitterContext} from "../utils/context.ts";
 
-const Avatar = ({size}) => {
+interface Props {
+    size: string;
+}
+
+const Avatar = ({size}: Props) => {
     const {user, changeAvatar, changeName} = useContext(TwitterContext);
 
     return (
