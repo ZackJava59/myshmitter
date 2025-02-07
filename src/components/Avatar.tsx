@@ -11,12 +11,16 @@ const Avatar = ({size}: Props) => {
     return (
         <img onClick={() => {
             const url = prompt('Enter new avatar URL');
-            changeAvatar(url);
+            if (url) {
+                changeAvatar(url);
+            }
         }}
              onContextMenu={e => {
                  e.preventDefault();
                  const name = prompt('Enter new name');
-                 changeName(name)
+                 if (name) {
+                     changeName(name)
+                 }
              }}
              className={`user-avatar ${size ?? ''}`}
              src={user.avatar}
