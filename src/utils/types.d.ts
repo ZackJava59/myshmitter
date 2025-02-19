@@ -1,9 +1,9 @@
-export interface User {
+export interface UserType {
     name: string;
     avatar: string;
 }
 
-export interface Stats {
+export interface StatsType {
     followers: number;
     following: number;
 }
