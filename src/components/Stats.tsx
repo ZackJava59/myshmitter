@@ -1,10 +1,13 @@
 import Avatar from "./Avatar.tsx";
-import {useContext} from "react";
-import {TwitterContext} from "../utils/context.ts";
+import {useDispatch, useSelector} from "react-redux";
+import {AppDispatch, RootState} from "../store/store.ts";
+import {changeFollowers, changeFollowing} from "../actions/twitActions.ts";
 
 
 const Stats = () => {
-    const {user, stats, changeFollowers, changeFollowing} = useContext(TwitterContext);
+    const user = useSelector((state: RootState) => state.user);
+    const stats = useSelector((state: RootState) => state.stats);
+    const dispatch = useDispatch<AppDispatch>();
     return (
         <div className={'user-stats'}>
             <div>
@@ -13,22 +16,22 @@ const Stats = () => {
             </div>
             <div className={'stats'}>
                 <div onClick={() => {
-                    changeFollowers(stats.followers + 1)
+                    dispatch(changeFollowers(stats.followers + 1))
                 }}
                      onContextMenu={e => {
                          e.preventDefault();
                          if (stats.followers > 0) {
-                             changeFollowers(stats.followers - 1)
+                             dispatch(changeFollowers(stats.followers - 1))
                          }
                      }}>Followers: {stats.followers}</div>
 
                 <div onClick={() => {
-                    changeFollowing(stats.following + 1)
+                    dispatch(changeFollowing(stats.following + 1))
                 }}
                      onContextMenu={e => {
                          e.preventDefault()
                          if (stats.following > 0) {
-                             changeFollowing(stats.following - 1)
+                             dispatch(changeFollowing(stats.following - 1))
                          }
                      }}>Following: {stats.following}</div>
             </div>

@@ -1,27 +1,25 @@
-import {StatsType, UserType} from "../utils/types";
-
 export const CHANGE_AVATAR = 'CHANGE_AVATAR';
 export const CHANGE_NAME = 'CHANGE_NAME';
 export const CHANGE_FOLLOWERS = 'CHANGE_FOLLOWERS';
 export const CHANGE_FOLLOWING = 'CHANGE_FOLLOWING';
 
-export const changeAvatar = (user: UserType) => ({
+export const changeAvatar = (avatar:string) => ({
     type: CHANGE_AVATAR,
-    payload: user
+    payload: avatar
 });
 
-export const changeName = (user: UserType) => ({
+export const changeName = (name:string) => ({
     type: CHANGE_NAME,
-    payload: user
+    payload: name
 });
 
 
-export const changeFollowers = (stats: StatsType) => ({
+export const changeFollowers = (followers: number) => ({
     type: CHANGE_FOLLOWERS,
-    payload: stats
+    payload: followers
 })
 
-export const changeFollowing = (stats: StatsType) => ({
+export const changeFollowing = (following: number) => ({
     type: CHANGE_FOLLOWING,
-    payload: stats
+    payload: following
 })
