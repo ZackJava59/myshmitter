@@ -1,14 +1,13 @@
-import {useDispatch, useSelector} from "react-redux";
-import {AppDispatch, RootState} from "../store/store.ts";
-import {changeAvatar, changeName} from "../actions/twitActions.ts";
+import {useAppDispatch, useAppSelector} from "../app/hook.ts";
+import {changeAvatar, changeName} from "../features/user/userSlice.ts";
 
 interface Props {
-    size: string;
+    size?: 'small';
 }
 
 const Avatar = ({size}: Props) => {
-    const user = useSelector((state: RootState) => state.user);
-    const dispatch = useDispatch<AppDispatch>();
+    const user = useAppSelector(state => state.user);
+    const dispatch = useAppDispatch();
 
     return (
         <img onClick={() => {
